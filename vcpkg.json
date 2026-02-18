@@ -1,0 +1,7 @@
+{
+  "name": "physics2dsim",
+  "version": "1.0.0",
+  "dependencies": [
+    "sfml"
+  ]
+}
