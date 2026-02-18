@@ -1,0 +1,39 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.db
+*.opendb
+*.ipch
+*.VC.db
+*.VC.opendb
+
+# Build outputs
+x64/
+Debug/
+Release/
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+
+# Compiled Object files
+*.o
+*.obj
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Precompiled Headers
+*.pch
+
+# Generated files
+*.log
+*.tlog
+*.idb
+*.pdb
+*.ilk
+*.iobj
+*.ipdb
