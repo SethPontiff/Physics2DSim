@@ -44,7 +44,7 @@ bool PhysicsWorld::checkCollision(RigidBody* a, RigidBody* b,
     if (distance < radiusSum) {
         penetration = radiusSum - distance;
 
-        if (distance > 0.0001f) {
+        if (distance > EPSILON) {
             normal = Vec2::normalized(diff);
         }
         else {
@@ -62,8 +62,8 @@ void PhysicsWorld::resolveCollision(RigidBody* a, RigidBody* b,
     float totalInverseMass = a->getInverseMass() + b->getInverseMass();
     if (totalInverseMass == 0.0f) return; 
 
-    float percent = 0.8f; 
-    float slop = 0.01f;  
+    float percent = POSITION_CORRECTION_PERCENT;
+    float slop = POSITION_CORRECTION_SLOP;
 
     sf::Vector2f correction = normal * (std::max(penetration - slop, 0.0f) / totalInverseMass) * percent;
 

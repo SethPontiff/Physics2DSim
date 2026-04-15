@@ -34,13 +34,13 @@ void RigidBody::integrate(float dt) {
 
     velocity *= friction;
 
-    float maxSpeed = 1500.0f; // Can't make this too high, otherwise it'll shoot into the stratosphere.
+    float maxSpeed = MAX_VELOCITY; // Can't make this too high, otherwise it'll shoot into the stratosphere.
     float speed = Vec2::length(velocity);
     if (speed > maxSpeed) {
         velocity = Vec2::normalized(velocity) * maxSpeed;
     }
 
-    if (Vec2::lengthSquared(velocity) < 0.1f) {
+    if (Vec2::lengthSquared(velocity) < VELOCITY_STOP_THRESHOLD_SQUARED) {
         velocity = sf::Vector2f(0.f, 0.f);
     }
 

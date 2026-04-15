@@ -4,6 +4,9 @@
 
 class RigidBody {
 public:
+    static constexpr float MAX_VELOCITY = 800.0f;
+    static constexpr float VELOCITY_STOP_THRESHOLD_SQUARED = 0.1f;
+
     sf::Vector2f position;
     sf::Vector2f velocity;
     sf::Vector2f force; 
