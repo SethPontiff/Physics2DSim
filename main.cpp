@@ -104,6 +104,9 @@ int main() {
     sf::Vector2f dragStart;
     sf::Vector2f dragEnd;
 
+    const float FIXED_TIME_STEP = 1.0f / 60.0f; // 60 for 60 Hz physics updates.
+    float accumulator = 0.0f;
+
     sf::Clock clock;
 
     while (window.isOpen()) {
@@ -140,9 +143,16 @@ int main() {
             dragEnd = sf::Vector2f(mousePos.x, mousePos.y);
         }
 
-        float dt = clock.restart().asSeconds();
-        dt = std::min(dt, 0.02f); 
-        world.step(dt);
+        // Fixed time step physics update & updating physics at a fixed rate.
+        float frameTime = clock.restart().asSeconds();
+        frameTime = std::min(frameTime, 0.25f); 
+
+        accumulator += frameTime;
+
+        while (accumulator >= FIXED_TIME_STEP) {
+            world.step(FIXED_TIME_STEP);
+            accumulator -= FIXED_TIME_STEP;
+        }
 
         window.clear(sf::Color(20, 20, 20)); 
 
