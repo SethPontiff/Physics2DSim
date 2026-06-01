@@ -1,13 +1,13 @@
 #include "RigidBody.h"
 #include "Vector2.h" 
 
-RigidBody::RigidBody(sf::Vector2f pos, float mass, float radius, bool isStatic)
+RigidBody::RigidBody(sf::Vector2f pos, float mass, Shape* shape, bool isStatic)
     : position(pos),
     velocity(0.f, 0.f),
     force(0.f, 0.f),
     mass(mass),
-    radius(radius),
-    restitution(0.85f),  
+    shape(shape),
+    restitution(0.85f),
     friction(0.98f),   
     isStatic(isStatic),
     color(sf::Color::White)

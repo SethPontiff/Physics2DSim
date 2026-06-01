@@ -156,6 +156,7 @@ sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
   <ItemGroup>
     <ClInclude Include="PhysicsWorld.h" />
     <ClInclude Include="RigidBody.h" />
+    <ClInclude Include="Shape.h" />
     <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
